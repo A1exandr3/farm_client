@@ -1,4 +1,5 @@
 // Класс, создающий объекты запроса к серверу для определенных действий
+
 package ServerProvider
 {
 
@@ -14,7 +15,7 @@ package ServerProvider
 
         }
 
-        public static function getImageByIdRequest (imageId : int) : URLRequest
+        public static function getImageByIdRequest (imageId:int) : URLRequest
         {
             return(new URLRequest(SERVER_URL + 'get_image?image_id=' + imageId.toString()));
         }
@@ -22,6 +23,11 @@ package ServerProvider
         public static function getGameParamsRequest () : URLRequest
         {
             return(new URLRequest(SERVER_URL + 'get_game_params'));
+        }
+
+        public static function getFarmContent (farm_id:int) : URLRequest
+        {
+            return(new URLRequest(SERVER_URL + 'get_farm_content?farm_id=' + farm_id.toString()));
         }
 
     }

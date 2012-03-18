@@ -13,14 +13,18 @@ package Game
 
         public function GameScreen()
         {
-            _loader.addEventListener(Event.COMPLETE, paramsLoadHandler);
-            trace(URLRequestFactory.getGameParamsRequest().url);
+            loadGameParams();
+        }
+
+        private function loadGameParams () : void
+        {
+            _loader.addEventListener(Event.COMPLETE, loadGameParamsHandler);
             _loader.load(URLRequestFactory.getGameParamsRequest());
         }
 
-        private function paramsLoadHandler (event:Event) : void
+        private function loadGameParamsHandler (event:Event) : void
         {
-            _loader.removeEventListener(Event.COMPLETE, paramsLoadHandler);
+            _loader.removeEventListener(Event.COMPLETE, loadGameParamsHandler);
             if (_loader.data)
             {
                 var gameParams:XML = new XML(_loader.data);
