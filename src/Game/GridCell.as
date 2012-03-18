@@ -14,16 +14,23 @@ package Game
 
     public class GridCell extends IsoObject
     {
+        private var _x:int;
+        private var _y:int;
+        private var _plantId:int;
+        private var _imageId:int;
 
         private var _hitArea:Sprite = new Sprite();
         private var _image:Bitmap = new Bitmap();
         private var _imageBorder:Rectangle;
 
-        private var _contentExists:Boolean = false;
+        private var _collectable:Boolean = false;
 
-        public function GridCell(size:Number)
+        public function GridCell(size:Number, x:int, y:int)
         {
             super(size);
+
+            _x = x;
+            _y = y;
 
             addEventListener(MouseEvent.CLICK, onClick);
 
@@ -37,6 +44,7 @@ package Game
             setDefaultHitArea();
         }
 
+        //Дефолтная hitArea по границам ячейки
         private function setDefaultHitArea () : void
         {
             _hitArea.x = 0;
@@ -53,35 +61,42 @@ package Game
 
 		private function onClick (event:MouseEvent) : void
 		{
-			if (_contentExists)
+			if (_collectable)
 			{
-				clear();
+				clearContent();
 			}
 			else
 			{
-				setImage(3);
+				setContent(3, 1, true);
 			}
 		}
 
-        public function setImage (image_id:int) : void
+        public function setContent (imageId:int, plantId:int, collectable:Boolean) : void
         {
-            ImageHolder.prepareImage(image_id ,this.imageCompleteCallback, this._imageBorder);
-            _contentExists = true;
+            trace(imageId, plantId, collectable);
+            if (_imageId != imageId)
+            {
+                ImageHolder.prepareImage(imageId ,this.imageCompleteCallback, this._imageBorder);
+            }
+            _plantId = plantId;
+            _imageId = imageId;
+            _collectable = collectable;
         }
 
-        private function clear () : void
+        public function clearContent () : void
         {
-            if (_contentExists)
+            if (_plantId != 0)
             {
                 _image.bitmapData.fillRect(_image.bitmapData.rect, 0x00000000);
                 setDefaultHitArea();
-                _contentExists = false;
+                _imageId = 0;
+                _plantId = 0;
+                _collectable = false;
             }
         }
 
         private function imageCompleteCallback (interactiveImage : ImageProcessor) : void
 		{
-            //trace('image received');
             _image.bitmapData.copyPixels(interactiveImage.bitmapData,
                 interactiveImage.bitmapData.rect, interactiveImage.bitmapData.rect.topLeft);
 

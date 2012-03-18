@@ -52,7 +52,7 @@ package isometric
         public function set isometricPosition(value:IsoPoint):void
         {
             _isometricPosition = value;
-            screenPosition = IsoUtils.isoToScreen(value)
+            screenPosition = IsoUtils.isoToScreen(value);
         }
         public function get isometricPosition():IsoPoint
         {

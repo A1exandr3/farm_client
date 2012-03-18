@@ -29,9 +29,8 @@ package Game
 
         private function createGrid(x:int, y:int, size:int) : void
         {
-            _grid = new GameGrid(size);
+            _grid = new GameGrid(size, this);
             _grid.screenPosition = new Point(x, y);
-            _grid.world = this;
             addChild(_grid);
         }
     }
