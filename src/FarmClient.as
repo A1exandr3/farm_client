@@ -15,7 +15,7 @@ package {
             stage.scaleMode = StageScaleMode.NO_SCALE;
 
             var v_iso_obj:IsoObject = new IsoObject(400);
-            v_iso_obj.screen_position = new Point(400, 210);
+            v_iso_obj.screenPosition = new Point(400, 210);
             addChild(v_iso_obj);
 
             var vTileSize:Number = v_iso_obj.size/10;
@@ -25,7 +25,7 @@ package {
                 for(var j:int = 0; j < 10; j++)
                 {
                     var tile:IsoObject = new IsoObject(vTileSize);
-                    tile.isometric_position = new IsoPoint(i * vTileSize - vDiff, j * vTileSize - vDiff);
+                    tile.isometricPosition = new IsoPoint(i * vTileSize - vDiff, j * vTileSize - vDiff);
                     v_iso_obj.addChild(tile);
                 }
             }

@@ -8,21 +8,21 @@ package isometric
 
     public class IsoObject extends Sprite
     {
-        protected var _isometric_position:IsoPoint = new IsoPoint();
-        protected var _screen_position:Point = new Point();
+        protected var _isometricPosition:IsoPoint = new IsoPoint();
+        protected var _screenPosition:Point = new Point();
         protected var _size:Number;
 
         public function IsoObject(size:Number)
         {
             _size = size;
-            draw_iso_bounds()
-            draw_screen_bounds()
+            drawIsoBounds()
+            drawScreenBounds()
         }
 
         /**
          * Рисует границы объекта в изометрическом пространстве.
          */
-        public function draw_iso_bounds():void
+        public function drawIsoBounds():void
         {
             var v_graphics:Graphics = this.graphics;
             v_graphics.lineStyle(1, 0x000000);
@@ -36,7 +36,7 @@ package isometric
         /**
          * Рисует границы объекта в прямом пространстве.
          */
-        public function draw_screen_bounds():void
+        public function drawScreenBounds():void
         {
             var v_graphics:Graphics = this.graphics;
             var v_rect:Rectangle = this.rect;
@@ -49,29 +49,29 @@ package isometric
         /**
          * Сеттер/геттер позиции в изометрическом пространстве как экземпляра IsoPoint.
          */
-        public function set isometric_position(value:IsoPoint):void
+        public function set isometricPosition(value:IsoPoint):void
         {
-            _isometric_position = value;
-            screen_position = IsoUtils.iso_to_screen(value)
+            _isometricPosition = value;
+            screenPosition = IsoUtils.isoToScreen(value)
         }
-        public function get isometric_position():IsoPoint
+        public function get isometricPosition():IsoPoint
         {
-            return _isometric_position;
+            return _isometricPosition;
         }
 
         /**
          * Сеттер/геттер позиции на экране как экземпляра Point.
          */
-        public function set screen_position(value:Point):void
+        public function set screenPosition(value:Point):void
         {
-            _isometric_position = IsoUtils.screen_to_iso(value);
-            _screen_position = value;
+            _isometricPosition = IsoUtils.screenToIso(value);
+            _screenPosition = value;
             x = value.x;
             y = value.y;
         }
-        public function get screen_position():Point
+        public function get screenPosition():Point
         {
-            return _screen_position;
+            return _screenPosition;
         }
 
         /**

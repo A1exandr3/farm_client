@@ -13,7 +13,7 @@ package isometric
          * Из изометрического пространства в прямое.
          * @arg iso_point точка изометрического пространства.
          */
-        public static function iso_to_screen(iso_point:IsoPoint):Point
+        public static function isoToScreen(iso_point:IsoPoint):Point
         {
             var screen_x:Number = iso_point.x - iso_point.y;
             var screen_y:Number = (iso_point.x + iso_point.y) * Y_SCALE;
@@ -24,7 +24,7 @@ package isometric
          * Из прямого пространства в изометрическое.
          * @arg screen_point точка в прямом пространстве.
          */
-        public static function screen_to_iso(screen_point:Point):IsoPoint
+        public static function screenToIso(screen_point:Point):IsoPoint
         {
             //Проверить!!!
             var iso_x:Number = screen_point.y + screen_point.x;
