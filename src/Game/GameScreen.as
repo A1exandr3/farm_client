@@ -7,7 +7,9 @@ package Game
     import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
-    import flash.geom.Rectangle;
+import flash.geom.Matrix;
+import flash.geom.Point;
+import flash.geom.Rectangle;
     import flash.net.URLLoader;
 
     public class GameScreen extends Sprite
@@ -34,6 +36,8 @@ package Game
 
                 _world.addEventListener(MouseEvent.MOUSE_DOWN, dragWorld);
                 _world.addEventListener(MouseEvent.MOUSE_UP, dropWorld);
+                this.addEventListener(MouseEvent.MOUSE_WHEEL, MouseWheelHandler);
+
                 stage.addEventListener(Event.MOUSE_LEAVE, dropWorldStage);
                 var gamePanel:GamePanel = new GamePanel(this);
                 gamePanel.addButton('Сделать ход', gameParams.@clock_icon_id, _world.raiseTime);
@@ -67,6 +71,26 @@ package Game
         private function dropWorldStage (event:Event) : void
         {
             _world.stopDrag();
+        }
+
+        private function MouseWheelHandler (event:MouseEvent) : void
+        {
+            var scaleDiff:Number = event.delta / 30;
+            var newScaleX:Number = (_world.scaleX + scaleDiff)/_world.scaleX;
+            var newScaleY:Number = (_world.scaleY + scaleDiff)/_world.scaleY;
+
+            if (_world.scaleX + scaleDiff < 0.5 || _world.scaleX + scaleDiff > 1.5)
+            	return;
+
+            var ScalePoint:Point = new Point(400, 400);
+
+            var m:Matrix = _world.transform.matrix;
+            m.tx -= ScalePoint.x;
+            m.ty -= ScalePoint.y;
+            m.scale(newScaleX, newScaleY);
+            m.tx += ScalePoint.x;
+            m.ty += ScalePoint.y;
+            _world.transform.matrix = m;
         }
 
     }
