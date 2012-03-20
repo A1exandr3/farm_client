@@ -22,6 +22,7 @@ package Game
         private var _plantId:int;
         private var _imageId:int;
 
+        private var _highlight:Sprite = new Sprite();
         private var _hitArea:Sprite = new Sprite();
         private var _image:Bitmap = new Bitmap();
         private var _imageBorder:Rectangle;
@@ -38,6 +39,15 @@ package Game
             _imageBorder.inflate(-4, -4);
             _image.bitmapData = new BitmapData(size * 2, size * 4, true, 0x00000000);
 
+            _highlight.graphics.beginFill(0x000000, .2);
+            _highlight.graphics.moveTo(-size, 0);
+            _highlight.graphics.lineTo(0, (-size) * IsoUtils.Y_SCALE);
+            _highlight.graphics.lineTo(size, 0);
+            _highlight.graphics.lineTo(0, (size) * IsoUtils.Y_SCALE);
+            _highlight.graphics.lineTo(-size, 0);
+            _highlight.graphics.endFill();
+            _highlight.visible = false;
+            addChild(_highlight);
             addChild(_image);
             hitArea = _hitArea;
             addChild(_hitArea);
@@ -119,7 +129,8 @@ package Game
             _grid._selectedCell = this;
             if (_grid._planting){
                 if (_plantId == 0){
-                    filters = [new GlowFilter(0x0000FF,1,10,10,2,1,false,false)];
+                    _highlight.visible = true;
+                    filters = [new GlowFilter(0x000000,1,10,10,2,1,false,false)];
                 }
             }
             else{
@@ -141,6 +152,7 @@ package Game
                 filters = [];
             }
             _grid._selectedCell = null;
+            _highlight.visible = false;
         }
 
         public function get gridX():int {

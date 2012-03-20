@@ -75,16 +75,25 @@
       <file leaf-file-name="CustomCursor.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/CustomCursor.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="4" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamePanel.as" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GamePanel.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/GamePanel.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="0" selection-start="3283" selection-end="3283" vertical-scroll-proportion="1.0397351">
+            <state line="84" column="12" selection-start="2902" selection-end="2902" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsoObject.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/isometric/IsoObject.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="14" selection-start="492" selection-end="492" vertical-scroll-proportion="0.29801324">
               <folding />
             </state>
           </provider>
@@ -111,7 +120,7 @@
       <file leaf-file-name="GridCell.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game/GridCell.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="33" selection-start="2469" selection-end="2469" vertical-scroll-proportion="0.0">
+            <state line="148" column="0" selection-start="5107" selection-end="5107" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -142,7 +151,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/FarmClientRunner.as" />
-        <option value="$PROJECT_DIR$/src/isometric/IsoObject.as" />
         <option value="$PROJECT_DIR$/src/ServerProvider/URLRequestFactory.as" />
         <option value="$PROJECT_DIR$/src/ServerProvider/ImageHolder.as" />
         <option value="$PROJECT_DIR$/src/UI/Button.as" />
@@ -154,9 +162,10 @@
         <option value="$PROJECT_DIR$/src/ServerProvider/GameActionsProcessor.as" />
         <option value="$PROJECT_DIR$/src/UI/GameButton.as" />
         <option value="$PROJECT_DIR$/src/Game/GameScreen.as" />
-        <option value="$PROJECT_DIR$/src/UI/CustomCursor.as" />
+        <option value="$PROJECT_DIR$/src/isometric/IsoObject.as" />
         <option value="$PROJECT_DIR$/src/Game/GridCell.as" />
         <option value="$PROJECT_DIR$/src/UI/GamePanel.as" />
+        <option value="$PROJECT_DIR$/src/UI/CustomCursor.as" />
       </list>
     </option>
   </component>
@@ -222,6 +231,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServerProvider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="isometric" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -481,11 +526,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/isometric/IsoObject.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="57" selection-start="1728" selection-end="1728" vertical-scroll-proportion="1.0331125" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerProvider/ImageHolder.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="72" selection-start="699" selection-end="699" vertical-scroll-proportion="0.6036217" />
@@ -546,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/GameGrid.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/GameScreen.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="0" selection-start="1408" selection-end="1408" vertical-scroll-proportion="0.0">
@@ -562,21 +595,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/GridCell.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="33" selection-start="2469" selection-end="2469" vertical-scroll-proportion="0.0">
+        <state line="148" column="0" selection-start="5107" selection-end="5107" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/GameGrid.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/CustomCursor.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/GamePanel.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="0" selection-start="3283" selection-end="3283" vertical-scroll-proportion="1.0397351">
+        <state line="84" column="12" selection-start="2902" selection-end="2902" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/isometric/IsoObject.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="14" selection-start="492" selection-end="492" vertical-scroll-proportion="0.29801324">
           <folding />
         </state>
       </provider>

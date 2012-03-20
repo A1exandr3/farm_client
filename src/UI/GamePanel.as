@@ -1,15 +1,14 @@
 package UI {
 
-import flash.display.Sprite;
+    import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
 
     import Game.GameScreen;
 
-import flash.ui.Mouse;
+    import flash.ui.Mouse;
 
-
-public class GamePanel extends Sprite {
+    public class GamePanel extends Sprite {
 
         private var _maxPos:int = 5;
         private var _plantingType:int;
@@ -60,7 +59,7 @@ public class GamePanel extends Sprite {
 
             _customCursor.fillByImage((event.target as GameButton).icon);
             _customCursor.x = event.stageX - _customCursor.width * .5;
-            _customCursor.y = event.stageY - _customCursor.height * .5;
+            _customCursor.y = event.stageY - _customCursor.height * .8;
             _customCursor.startDrag(false);
             Mouse.hide();
         }

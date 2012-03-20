@@ -15,8 +15,8 @@ package isometric
         public function IsoObject(size:Number)
         {
             _size = size;
-            drawIsoBounds();
-            drawScreenBounds();
+            //drawIsoBounds();
+            //drawScreenBounds();
         }
 
         /**

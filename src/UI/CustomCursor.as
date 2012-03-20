@@ -1,4 +1,5 @@
-package UI {
+package UI
+{
 
     import flash.display.Bitmap;
     import flash.display.BitmapData;
@@ -12,6 +13,7 @@ package UI {
         {
             mouseEnabled = false;
             _image.bitmapData = new BitmapData(65, 85, true, 0x00000000);
+            _image.alpha = .6;
             addChild(_image);
         }
 
