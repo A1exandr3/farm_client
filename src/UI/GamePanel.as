@@ -1,25 +1,25 @@
 package UI {
 
-import flash.display.Bitmap;
 import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
 
     import Game.GameScreen;
 
-    import flash.ui.Mouse;
+import flash.ui.Mouse;
 
-    public class GamePanel extends Sprite {
+
+public class GamePanel extends Sprite {
 
         private var _maxPos:int = 5;
         private var _plantingType:int;
         private var _gameScreen:GameScreen;
-        private var _customCursor:Bitmap = new Bitmap();
+        private var _customCursor:CustomCursor = new CustomCursor();
 
         public function GamePanel(gameScreen:GameScreen) {
             _gameScreen = gameScreen;
-
-            //addChild(_customCursor);
+            mouseEnabled = false;
+            addChild(_customCursor);
         }
 
         public function addPlantButton(plantTypeId:int, plantTypeName:String, imageId:int) : void
@@ -52,21 +52,18 @@ import flash.display.Sprite;
         private function startDragging (event:MouseEvent) : void
         {
             _plantingType = (event.target as GameButton).plantTypeId;
-            _customCursor.bitmapData = (event.target as GameButton).icon.bitmapData.clone();
             _gameScreen.world._grid._planting = true;
+
             _gameScreen.world._grid.addEventListener(MouseEvent.MOUSE_UP, stopDragging);
             stage.addEventListener(MouseEvent.MOUSE_UP, stageMouseUpHandler);
             stage.addEventListener(Event.MOUSE_LEAVE, stageMouseLeaveHandler);
 
-            //stage.addEventListener(MouseEvent.MOUSE_MOVE, stageMouseRollOverHandler);
-            //Mouse.hide();
-        }
-
-        /*private function stageMouseRollOverHandler (event:MouseEvent) : void
-        {
+            _customCursor.fillByImage((event.target as GameButton).icon);
             _customCursor.x = event.stageX - _customCursor.width * .5;
             _customCursor.y = event.stageY - _customCursor.height * .5;
-        }*/
+            _customCursor.startDrag(false);
+            Mouse.hide();
+        }
 
         private function stopDragging (event:MouseEvent) : void
         {
@@ -86,15 +83,15 @@ import flash.display.Sprite;
 
         private function clearDragging() : void
         {
-            //_customCursor.bitmapData.fillRect(_customCursor.bitmapData.rect, 0x00000000);
-            //Mouse.show();
-            //stage.removeEventListener(MouseEvent.ROLL_OVER, stageMouseRollOverHandler);
+            Mouse.show();
+            _gameScreen.world._grid._planting = false;
+            _plantingType = 0;
 
             _gameScreen.world._grid.removeEventListener(MouseEvent.MOUSE_UP, stopDragging);
             stage.removeEventListener(Event.MOUSE_LEAVE, stageMouseLeaveHandler);
             stage.removeEventListener(MouseEvent.MOUSE_UP, stageMouseUpHandler);
-            _gameScreen.world._grid._planting = false;
-            _plantingType = 0;
+
+            _customCursor.clear();
         }
 
     }

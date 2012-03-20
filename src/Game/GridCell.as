@@ -65,7 +65,7 @@ package Game
 
 		private function onClick (event:MouseEvent) : void
 		{
-			if (_collectable)
+            if (_collectable)
 			{
 				GameActionsProcessor.execCollectPlant(_grid.fillCellsByXML, _plantId);
 			}
@@ -75,6 +75,7 @@ package Game
         {
             if (_imageId != imageId)
             {
+                clearSelection();
                 ImageHolder.prepareImage(imageId ,this.imageCompleteCallback, this._imageBorder);
             }
             _plantId = plantId;
@@ -129,6 +130,11 @@ package Game
         }
 
         private function onRollOut (event:MouseEvent) : void
+        {
+            clearSelection();
+        }
+
+        private function clearSelection () :void
         {
             if (filters.length > 0)
             {
