@@ -1,22 +1,23 @@
 package Game
 {
-import ServerProvider.GameActionsProcessor;
+    import ServerProvider.GameActionsProcessor;
 
-import flash.utils.Dictionary;
+    import flash.utils.Dictionary;
 
-import isometric.IsoObject;
+    import isometric.IsoObject;
     import isometric.IsoPoint;
 
     public class GameGrid extends IsoObject
     {
-        private var _world:GameWorld;
+        public var _selectedCell:GridCell;
+        public var _planting:Boolean = false;
+
         private var _cells:Array = new Array();
         private var _cellsByXY:Array = new Array();
 
-        public function GameGrid(size:Number, world:GameWorld)
+        public function GameGrid(size:Number)
         {
             super(size);
-            _world = world;
             createCells();
             this.cacheAsBitmap = true;
             GameActionsProcessor.execLoadContent(fillCellsByXML);
@@ -31,7 +32,7 @@ import isometric.IsoObject;
                 _cellsByXY[i] = new Array();
                 for(var j:int = 1; j <= 10; j++)
                 {
-                    var cell:GridCell = new GridCell(cellSize, i, j);
+                    var cell:GridCell = new GridCell(cellSize, this, i, j);
                     _cellsByXY[i][j] = cell;
                     _cells.push(cell);
                     cell.isometricPosition = new IsoPoint(i * cellSize - offset, j * cellSize - offset);
@@ -40,7 +41,15 @@ import isometric.IsoObject;
             }
         }
 
-        private function fillCellsByXML (gridContent:XML) : void
+        public function setPlant(plantTypeId:int) : void
+        {
+            if (_planting && _selectedCell && _selectedCell.plantId == 0)
+            {
+                GameActionsProcessor.execSetPlant(fillCellsByXML, _selectedCell.gridX, _selectedCell.gridY, plantTypeId);
+            }
+        }
+
+        public function fillCellsByXML (gridContent:XML) : void
         {
             var notEmptyCells:Dictionary = new Dictionary();
             var cell:GridCell;

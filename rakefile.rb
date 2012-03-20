@@ -24,6 +24,20 @@ require 'asunit4'
 # ENV['FCSH_PORT']        = 12321
 
 ##############################
+# Production
+
+# Compile the production swf
+mxmlc "bin/FarmClient.swf" do |t|
+  t.input = "src/FarmClient.as"
+  t.static_link_runtime_shared_libraries = true
+  t.debug = false
+  t.use_network = true
+end
+
+desc "Compile and run the production swf"
+flashplayer :production => "bin/FarmClient.swf"
+
+##############################
 # Debug
 
 # Compile the debug swf

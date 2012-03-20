@@ -48,7 +48,7 @@ package ServerProvider
 
         private function ImageLoadHandler (pEvent:Event) : void
         {
-            trace('processing image: ' + _request.url);
+            trace('Loading image: ' + _request.url);
             var vImage:Bitmap = _loader.content as Bitmap;
             vImage.smoothing = true;
             var vBitmapData:BitmapData = vImage.bitmapData;

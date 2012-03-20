@@ -1,5 +1,6 @@
 package Game
 {
+    import ServerProvider.GameActionsProcessor;
     import ServerProvider.URLRequestFactory;
 
     import flash.display.Bitmap;
@@ -10,7 +11,7 @@ package Game
 
     public class GameWorld extends Sprite
     {
-        private var _grid:GameGrid;
+        public var _grid:GameGrid;
         private var _loader:Loader = new Loader();
 
         public function GameWorld(gridX:int, gridY:int, gridSize:int, bgImageId:int)
@@ -29,9 +30,14 @@ package Game
 
         private function createGrid(x:int, y:int, size:int) : void
         {
-            _grid = new GameGrid(size, this);
+            _grid = new GameGrid(size);
             _grid.screenPosition = new Point(x, y);
             addChild(_grid);
+        }
+
+        public function raiseTime () : void
+        {
+            GameActionsProcessor.execRaiseTime(_grid.fillCellsByXML);
         }
     }
 }
